@@ -1,3 +1,20 @@
 = RackFixContentType
 
-This project rocks and uses MIT-LICENSE.
+Fixes the content type of form uploads by using the file-utility. A lot of browsers screw up the content type so we don't trust the given value in the header.
+
+==Usage
+
+For rails, in environment.rb, just add
+
+  config.middleware.use "RackFixContentType::Middleware"
+
+For sinatra, add
+
+  use RackFixContentType::Middleware
+
+Other rack applications need to use the middleware accordingly.
+
+
+==License
+
+Uses the MIT-LICENSE
