@@ -5,7 +5,7 @@ module RackFixContentType
     end
 
     def call(env)
-      fix_content_type(env["rack.request.form_hash"]) if env["REQUEST_METHOD"] == "POST"
+      fix_content_type(env["rack.request.form_hash"]) if env["rack.request.form_hash"] && env["REQUEST_METHOD"] == "POST"
       @app.call(env)
     end
 
