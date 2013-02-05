@@ -6,7 +6,7 @@ class FixContentTypeTest < ActionDispatch::IntegrationTest
 
     post '/fix_content_type', :document => file
 
-    assert_equal "application/pdf", YAML.load(response.body)["document"].content_type
+    assert_equal "application/pdf", JSON.load(response.body)["document"]["content_type"]
   end
 
   test "fix the content type with nested params" do
@@ -14,7 +14,7 @@ class FixContentTypeTest < ActionDispatch::IntegrationTest
 
     post '/fix_content_type', :document => { :file => file }
 
-    assert_equal "application/pdf", YAML.load(response.body)["document"]["file"].content_type
+    assert_equal "application/pdf", JSON.load(response.body)["document"]["file"]["content_type"]
   end
 
   test "detect csv files" do
@@ -22,7 +22,7 @@ class FixContentTypeTest < ActionDispatch::IntegrationTest
 
     post '/fix_content_type', :document => file
 
-    assert_equal "text/csv", YAML.load(response.body)["document"].content_type
+    assert_equal "text/csv", JSON.load(response.body)["document"]["content_type"]
   end
 
   test "have no errors when the tempfile is no file" do
