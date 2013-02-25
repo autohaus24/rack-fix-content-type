@@ -39,4 +39,9 @@ class FixContentTypeTest < ActionDispatch::IntegrationTest
     post '/fix_content_type'
     assert_response :success
   end
+
+  test "have no error with GET" do
+    get '/fix_content_type'
+    assert_response :success
+  end
 end
