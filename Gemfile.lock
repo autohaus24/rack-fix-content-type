@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rack-fix-content-type (1.1)
+    rack-fix-content-type (1.2)
       rack
 
 GEM
